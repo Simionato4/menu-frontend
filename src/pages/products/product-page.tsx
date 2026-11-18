@@ -1,4 +1,5 @@
 import { useCategory } from "@/cases/categories/hooks/use-categories";
+import { ProductList } from "@/cases/products/componentes/product-list";
 import { useSearchParams } from "react-router-dom";
 
 export function ProductPage() {
@@ -15,6 +16,7 @@ export function ProductPage() {
                 </h2>
             )}
 
+            <ProductList categoryId={categoryId ?? undefined} />
         </div>
     )
 }
