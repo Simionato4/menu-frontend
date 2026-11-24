@@ -10,11 +10,9 @@ export function ProductPage() {
 
     return (
         <div className="flex flex-col gap-6">
-            {selectedCategory && (
-                <h2 className="text-2xl font-semibold uppercase">
-                    {selectedCategory.name}
-                </h2>
-            )}
+            <h2 className="text-2xl font-semibold uppercase">
+                {categoryId ? selectedCategory?.name : 'Todos os produtos'}
+            </h2>
 
             <ProductList categoryId={categoryId ?? undefined} />
         </div>

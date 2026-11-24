@@ -22,15 +22,16 @@ export function SpotButton(){
     return (
         <div className="flex items-center justify-center">
             <Button
-            className="flex cursor-pointer flex-col items-center gap-1 rounded-2xl px-6 py-4 text-brand-foreground transition-colors hover:bg-primary hover:text-brand-foreground"
+            className="flex cursor-pointer items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground transition-colors hover:bg-primary"
             onClick={() => setDialogOpen(true)}
             >
-                <MapPin className="size-6" />
+                <MapPin className="size-5" />
                 { selectedSpot ? selectedSpot.name : 'Selecionar mesa' }
             </Button>
 
             <SpotDialog 
-                open={dialogOpen}  
+                open={dialogOpen}
+                onOpenChange={setDialogOpen}
                 onSelect={hendleSelect}
                 selectedSpotId={selectedSpot?.id}
             />

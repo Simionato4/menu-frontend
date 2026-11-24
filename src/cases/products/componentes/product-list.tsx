@@ -7,18 +7,26 @@ type ProductListProps = {
 
 export function ProductList ({ categoryId }: ProductListProps) {
 
-    const { data: products = [], isLoading } = useProducts(categoryId);
+    const { data: products = [], isLoading, isError } = useProducts(categoryId);
+
+    if (isLoading) {
+        return <p className="text-muted-foreground">Carregando cardápio...</p>
+    }
+
+    if (isError) {
+        return <p className="text-muted-foreground">Não foi possível carregar o cardápio. Tente novamente em instantes.</p>
+    }
+
+    if (products.length === 0) {
+        return <p className="text-muted-foreground">Nenhum produto disponível nesta categoria.</p>
+    }
 
     return (
-        <ul className="grid grid-cols-3 gap-4">
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
 
-            {products?.map( product =>  (
+            {products.map( product =>  (
                 <li key={product.id}>
-                    {isLoading ? (
-                        <span>Carregando...</span>
-                    ) : (
-                        <ProductCard product={product} />
-                    )}
+                    <ProductCard product={product} />
                 </li>
             ))}
 
