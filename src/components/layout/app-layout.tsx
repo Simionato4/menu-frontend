@@ -9,7 +9,7 @@ export function AppLayout() {
 
             <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 py-8 px-6 md:flex-row">
 
-                <aside className="flex w-full flex-col md:w-64 md:shrink-0">
+                <aside className="flex w-full flex-col md:w-72 md:shrink-0">
                     <CategoryNav />
                 </aside>
 
